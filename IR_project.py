@@ -36,7 +36,7 @@ for k in range(len(level_query)):	# process each query
 		document_ranking[i] = np.dot(feature_data_level[reading_level][i],feature_query[k])	# basic dot similarity
 	
 
-
+	
 
 
 
