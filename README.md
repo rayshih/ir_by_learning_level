@@ -15,4 +15,13 @@ and put these data inside `data` folder
 
 ## Run
 
-    ./levelLearn
+    ./levelLearn <action>
+
+or if you're using windows
+
+    python src/main.py <action>
+
+action list:
+
+- index
+- query
