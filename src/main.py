@@ -2,6 +2,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import MiniBatchKMeans
 import numpy as np
 
+print 'hello world'
+
+quit()
+
 vectorizer = TfidfVectorizer(input='content',max_df=0.75,min_df=3)
 kmeans = MiniBatchKMeans(n_clusters=5)	#reading levels = n_clusters
 
