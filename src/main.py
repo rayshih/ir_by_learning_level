@@ -48,6 +48,7 @@ def main():
 
   if action == 'index':
     index(sys.argv[2])
+  # TODO implement query action
   else:
     print "action %s not supported" % (action)
 
