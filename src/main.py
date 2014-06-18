@@ -3,15 +3,8 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import MiniBatchKMeans
 
-def readFile(filename):
-  data = []
-
-  with open(filename) as fp:
-    for line in fp:
-      line.strip()
-      data.append(line)
-
-  return data
+import data_reader as reader
+import util
 
 # '''
 # decide each cluster to their corresponding reading level
@@ -35,12 +28,10 @@ def train(data):
   return kmeans, vectorizer
 
 def index(filename):
-  data = readFile(filename)
-
-  # TODO create a jl file reader
+  raw = reader.loadJL(filename)
+  data = [util.get_searchable(item) for item in raw];
 
   kmeans, vectorizer = train(data)
-
   # TODO save the indexing result
 
 def main():
