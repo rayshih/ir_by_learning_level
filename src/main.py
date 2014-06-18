@@ -1,4 +1,5 @@
 import sys
+import string
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import MiniBatchKMeans
@@ -26,8 +27,8 @@ def train(data):
   feature_data = vectorizer.fit_transform(data)
   indexed_data = [(idx, val) for idx, val in enumerate(feature_data)]
 
-  p = Persist("indexed_data")
-  p.dump(indexed_data)
+  Persist("indexed_data").dump(indexed_data)
+  Persist("vectorizer").dump(vectorizer)
 
   # kmeans.fit(feature_data)
 
@@ -38,12 +39,38 @@ def index(filename):
   train(data)
   # TODO save the indexing result
 
+def search(queryString):
+  indexed_data = Persist("indexed_data").load()
+  vectorizer = Persist("vectorizer").load()
+
+  queryVector = vectorizer.transform([queryString])[0]
+
+  scores = [(item[0], item[1].dot(queryVector.T)[0,0]) for item in indexed_data]
+  result = sorted(scores, key=lambda x:-x[1])
+  return result
+
+def query(queries):
+  queryString = string.join(queries)
+  print "Here is your query:"
+  print queryString
+  print ''
+
+  # array of doc_id
+  result = search(queryString)
+
+  for item in result[:10]:
+    print item
+
+  # TODO lookup the document
+
+
 def main():
   action = sys.argv[1]
 
   if action == 'index':
     index(sys.argv[2])
-  # TODO implement query action
+  elif action == 'query':
+    query(sys.argv[2:])
   else:
     print "action %s not supported" % (action)
 

@@ -15,7 +15,7 @@ class Persist:
 
   def load(self):
     path = self.get_path()
-    pickle.dump(open(path, "r"))
+    return pickle.load(open(path, "rb"))
 
   def get_path(self):
     return os.path.join(self.base_dir, self.filename + ".p")
