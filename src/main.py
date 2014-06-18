@@ -5,6 +5,7 @@ from sklearn.cluster import MiniBatchKMeans
 
 import data_reader as reader
 import util
+from persist import Persist
 
 # '''
 # decide each cluster to their corresponding reading level
@@ -23,15 +24,18 @@ def train(data):
   kmeans = MiniBatchKMeans(n_clusters=5)	#reading levels = n_clusters
 
   feature_data = vectorizer.fit_transform(data)
-  kmeans.fit(feature_data)
+  indexed_data = [(idx, val) for idx, val in enumerate(feature_data)]
 
-  return kmeans, vectorizer
+  p = Persist("indexed_data")
+  p.dump(indexed_data)
+
+  # kmeans.fit(feature_data)
 
 def index(filename):
   raw = reader.loadJL(filename)
   data = [util.get_searchable(item) for item in raw];
 
-  kmeans, vectorizer = train(data)
+  train(data)
   # TODO save the indexing result
 
 def main():
