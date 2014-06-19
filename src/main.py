@@ -27,8 +27,7 @@ def train(data):
   feature_data = vectorizer.fit_transform(data)
   indexed_data = [(idx, val) for idx, val in enumerate(feature_data)]
 
-  Persist("indexed_data").dump(indexed_data)
-  Persist("vectorizer").dump(vectorizer)
+  return indexed_data, vectorizer
 
   # kmeans.fit(feature_data)
 
@@ -36,8 +35,11 @@ def index(filename):
   raw = reader.loadJL(filename)
   data = [util.get_searchable(item) for item in raw];
 
-  train(data)
-  # TODO save the indexing result
+  indexed_data, vectorizer = train(data)
+
+  Persist("indexed_data").dump(indexed_data)
+  Persist("vectorizer").dump(vectorizer)
+  Persist("url_list").dump([item["url"] for item in raw])
 
 def search(queryString):
   indexed_data = Persist("indexed_data").load()
@@ -50,6 +52,8 @@ def search(queryString):
   return result
 
 def query(queries):
+  url_list = Persist("url_list").load()
+
   queryString = string.join(queries)
   print "Here is your query:"
   print queryString
@@ -57,12 +61,12 @@ def query(queries):
 
   # array of doc_id
   result = search(queryString)
+  result = [item for item in result if item[1] > 0.001]
 
   for item in result[:10]:
+    print url_list[item[0]]
     print item
-
-  # TODO lookup the document
-
+    print ""
 
 def main():
   action = sys.argv[1]
