@@ -20,10 +20,12 @@ function req(i) {
 			// purify the url
 			var item = {"url":""};
 			var regex=/&sa=.*/gi;
-			str = $(this).find('.r a').attr('href');
-			res = str.replace("/url?q=", "");
+			var str = $(this).find('.r a').attr('href'),
+				res = str.replace("/url?q=", ""),
+				title = $(this).find('h3').text();
 
 			item.url = res.replace(regex, "");
+			item.title = title;
 			results.push(item);
 
 		});

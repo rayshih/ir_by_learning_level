@@ -1,62 +1,82 @@
 [
 	{
-		"url": "http://code.tutsplus.com/"
+		"url": "http://code.tutsplus.com/",
+		"title": "Tuts+ Code Tutorials"
 	},
 	{
-		"url": "http://www.w3schools.com/"
+		"url": "http://www.w3schools.com/",
+		"title": "W3Schools Online Web Tutorials"
 	},
 	{
-		"url": "http://tutorialzine.com/"
+		"url": "http://tutorialzine.com/",
+		"title": "Tutorialzine | Web Development Tutorials & Resources"
 	},
 	{
-		"url": "http://www.afterhoursprogramming.com/"
+		"url": "http://www.afterhoursprogramming.com/",
+		"title": "Web Development Tutorials"
 	},
 	{
-		"url": "http://www.how-to-build-websites.com/"
+		"url": "http://www.how-to-build-websites.com/",
+		"title": "How-to-build-websites.com: Beginners Web Design Tutorial"
 	},
 	{
-		"url": "http://www.youtube.com/watch%3Fv%3D3JluqTojuME"
+		"url": "http://www.youtube.com/watch%3Fv%3D3JluqTojuME",
+		"title": "Web Development Tutorial for Beginners (#1) - How to build ..."
 	},
 	{
-		"url": "http://www.lynda.com/Web-Development-training-tutorials/1471-0.html"
+		"url": "http://www.lynda.com/Web-Development-training-tutorials/1471-0.html",
+		"title": "Learn Web Development with Video Courses and Tutorials from ..."
 	},
 	{
-		"url": "https://www.odesk.com/blog/2014/03/10-best-web-development-tutorials-beginners/"
+		"url": "https://www.odesk.com/blog/2014/03/10-best-web-development-tutorials-beginners/",
+		"title": "10 Best Web Development Tutorials For Beginners - oDesk"
 	},
 	{
-		"url": "http://www.skilledup.com/learn/programming/free-beginner-html-tutorials/"
+		"url": "http://www.skilledup.com/learn/programming/free-beginner-html-tutorials/",
+		"title": "20 Best Free Beginner HTML Tutorials For Students Of Web ..."
 	},
 	{
-		"url": "http://www.entheosweb.com/website_design/default.asp"
+		"url": "http://www.entheosweb.com/website_design/default.asp",
+		"title": "Web Design Tutorials - Entheos"
 	},
 	{
-		"url": "http://www.landofcode.com/"
+		"url": "http://www.landofcode.com/",
+		"title": "Web development tutorials for HTML, XHTML, CSS, Javascript, PHP ..."
 	},
 	{
-		"url": "http://www.w3resource.com/"
+		"url": "http://www.w3resource.com/",
+		"title": "w3resource: Web development tutorials"
 	},
 	{
-		"url": "http://www.pagetutor.com/"
+		"url": "http://www.pagetutor.com/",
+		"title": "HTML Tutorials"
 	},
 	{
-		"url": "http://www.webmonkey.com/"
+		"url": "http://www.webmonkey.com/",
+		"title": "Webmonkey - The Web Developer's Resource"
 	},
 	{
-		"url": "http://www.webmonkey.com/tutorials/"
+		"url": "http://www.webmonkey.com/tutorials/",
+		"title": "Tutorials - Webmonkey"
 	},
 	{
-		"url": "http://www.codecademy.com/tracks/web"
+		"url": "http://www.codecademy.com/tracks/web",
+		"title": "HTML & CSS | Codecademy"
 	},
 	{
-		"url": "http://www.htmlgoodies.com/beyond/webmaster/projects/article.php/3870531"
+		"url": "http://www.htmlgoodies.com/beyond/webmaster/projects/article.php/3870531",
+		"title": "WordPress: A Web Developer's Tutorial - HTML Goodies"
 	},
 	{
-		"url": "http://www.webdesign.org/"
+		"url": "http://teamtreehouse.com/",
+		"title": "Treehouse: Learn Web Design, Web Development, and More"
 	},
 	{
-		"url": "http://teamtreehouse.com/"
+		"url": "http://www.webdesign.org/",
+		"title": "Web Design - Website Design Tutorials, Articles and Free Stuff"
 	},
 	{
-		"url": "http://www.1stwebdesigner.com/tutorials/70-best-web-design-tutorials-2013/"
+		"url": "http://www.hongkiat.com/blog/responsive-web-tutorials/",
+		"title": "30 Useful Responsive Web Design Tutorials - Hongkiat"
 	}
 ]
