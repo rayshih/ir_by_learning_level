@@ -26,22 +26,6 @@ function req(i) {
 			item.url = res.replace(regex, "");
 			results.push(item);
 
-			// results.splice(-1, 0, item);
-			// console.log(results);
-
-			// var n = JSON.parse(JSON.stringify(news));
-			// for (var j = 0; j < categories.length; j++) {
-			// 	if ($(this).find('h2').text() === categories[j]) {
-			// 		data[j].news_count++;
-			// 		n.title = $(this).find('h1').text();
-			// 		n.url = $(this).find('a').attr('href');
-			// 		n.time = $(this).find('time').text();
-			// 		n.video = $(this).hasClass('hsv');
-			// 		data[j].news.push(n);
-			// 		flag[i] = true;
-			// 		break;
-			// 	}
-			// }
 		});
 		if (check.length === pages-1) 
 			save();

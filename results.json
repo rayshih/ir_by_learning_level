@@ -1,35 +1,5 @@
 [
 	{
-		"url": "http://www.landofcode.com/"
-	},
-	{
-		"url": "http://www.w3resource.com/"
-	},
-	{
-		"url": "http://www.pagetutor.com/"
-	},
-	{
-		"url": "http://www.webmonkey.com/"
-	},
-	{
-		"url": "http://www.webmonkey.com/tutorials/"
-	},
-	{
-		"url": "http://www.codecademy.com/tracks/web"
-	},
-	{
-		"url": "http://www.htmlgoodies.com/beyond/webmaster/projects/article.php/3870531"
-	},
-	{
-		"url": "http://www.webdesign.org/"
-	},
-	{
-		"url": "http://teamtreehouse.com/"
-	},
-	{
-		"url": "http://www.1stwebdesigner.com/tutorials/70-best-web-design-tutorials-2013/"
-	},
-	{
 		"url": "http://code.tutsplus.com/"
 	},
 	{
@@ -58,5 +28,35 @@
 	},
 	{
 		"url": "http://www.entheosweb.com/website_design/default.asp"
+	},
+	{
+		"url": "http://www.landofcode.com/"
+	},
+	{
+		"url": "http://www.w3resource.com/"
+	},
+	{
+		"url": "http://www.pagetutor.com/"
+	},
+	{
+		"url": "http://www.webmonkey.com/"
+	},
+	{
+		"url": "http://www.webmonkey.com/tutorials/"
+	},
+	{
+		"url": "http://www.codecademy.com/tracks/web"
+	},
+	{
+		"url": "http://www.htmlgoodies.com/beyond/webmaster/projects/article.php/3870531"
+	},
+	{
+		"url": "http://www.webdesign.org/"
+	},
+	{
+		"url": "http://teamtreehouse.com/"
+	},
+	{
+		"url": "http://www.1stwebdesigner.com/tutorials/70-best-web-design-tutorials-2013/"
 	}
 ]
