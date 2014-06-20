@@ -38,7 +38,7 @@ function req(i) {
 
 function save(){
 	var data = JSON.stringify(results, null, "\t");
-	fs.writeFileSync('results.json', data);
+	fs.writeFileSync('data/results.json', data);
 }
 
 for (var i = 0; i < pages; i++) {
