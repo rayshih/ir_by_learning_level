@@ -1,24 +1,24 @@
 var request = require('request'),
 	cheerio = require('cheerio'),
 	fs = require('fs'),
-	moment = require('moment'),
-	results = [], check = [],
-	pages = 2, index = 1, test = [];
+	moment = require('moment');
 
+var results = [], check = [],
+	pages = 2, index = 1, test = [];
 
 var flag = [];
 for (var i = 0; i < pages; i++) flag.push(false);
+
 function req(i) {
 	var url = 'https://www.google.com.tw/search?q=web+development+tutorial&es_sm=91&ei=TI2iU6aJK4jMkwXp04FQ&start=' + (i*10).toString() + '&sa=N&biw=1015&bih=503';
 	request(url, function (error, response, body) {
-		if (error || response.statusCode !== 200) {
-	    	return;
-	  	}
+		if (error || response.statusCode !== 200) return;
+
 		$ = cheerio.load(body);
 
 		$('.g').each(function(iter, elem) {
 			// purify the url
-			var item = {"url":""};
+			var item = [];
 			var regex=/&sa=.*/gi;
 			var str = $(this).find('.r a').attr('href'),
 				res = str.replace("/url?q=", ""),
@@ -27,11 +27,11 @@ function req(i) {
 			item.url = res.replace(regex, "");
 			item.title = title;
 			results.push(item);
-
 		});
-		if (check.length === pages-1) 
+
+		if (check.length === pages-1)
 			save();
-		else 
+		else
 			check.push(true);
 	});
 }
