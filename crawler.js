@@ -3,21 +3,23 @@ var request = require('request'),
 	fs = require('fs'),
 	moment = require('moment'),
 	results = [], check = [], flag = [], query = [],
-	pages = 2, index = 1, argc, errNum = 0, saved = 0;
+	pages = 2, index = 1, argc, errNum = 0, saved = 0, time = 5000;
 
 process.argv.forEach(function(val, index, array) {
 	if (val === '-p') pages = array[index+1];
-	else if (val === '-q') {
+	else if (val === '-t') time = parseInt(array[index+1])*1000;
+	else {
+
 	}
 });
 
+
 function req(i) {
-	console.log('page:'+i);
+	// console.log('page:'+i);
 	var url = 'https://www.google.com.tw/search?q=web+development+tutorial&es_sm=91&ei=TI2iU6aJK4jMkwXp04FQ&start=' + (i*10).toString() + '&sa=N&biw=1015&bih=503';
 	request(url, function (error, response, body) {
-		if (error || response.statusCode !== 200) {
-	    	return;
-	  	}
+		if (error || response.statusCode !== 200) return;
+
 		$ = cheerio.load(body);
 
 		$('.g').each(function(iter, elem) {
@@ -30,9 +32,7 @@ function req(i) {
 			item.url = res.replace(/&sa=.*/gi, "");
 			item.title = title;
 			results.push(item);
-
 		});
-
 
 		//non-blocking
 		if (check.length === pages-1) {
@@ -41,7 +41,7 @@ function req(i) {
 		}
 		else {
 			check.push(true);
-			setTimeout(function(){req(i+1)}, 1000);
+			setTimeout(function(){req(i+1)}, time);
 		}
 	});
 }
@@ -49,7 +49,7 @@ function req(i) {
 function save(){
 	saved = 1;
 	var data = JSON.stringify(results, null, "\t");
-	fs.writeFileSync('results.json', data);
+	fs.writeFileSync('data/results.json', data);
 }
 
 function getContent(i){
@@ -74,4 +74,4 @@ function getContent(i){
 	});
 }
 
-setTimeout(function(){req(0)}, 1000);
+setTimeout(function(){req(0)}, time);
