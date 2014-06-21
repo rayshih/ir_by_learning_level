@@ -41,7 +41,7 @@ function req(i) {
 		}
 		else {
 			check.push(true);
-			setTimeout(function(){req(i+1)}, time);
+			setTimeout(function(){req(i+1);}, time);
 		}
 	});
 }
@@ -74,4 +74,4 @@ function getContent(i){
 	});
 }
 
-setTimeout(function(){req(0)}, time);
+setTimeout(function(){req(0);}, time);
