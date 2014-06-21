@@ -1,0 +1,22 @@
+{
+  "name": "ir_by_learning_level",
+  "version": "0.0.0",
+  "description": "ir\\_by\\_learning\\_level =======================",
+  "main": "crawler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rayshih/ir_by_learning_level.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rayshih/ir_by_learning_level/issues"
+  },
+  "homepage": "https://github.com/rayshih/ir_by_learning_level",
+  "dependencies": {
+    "cheerio": "^0.17.0"
+  }
+}
