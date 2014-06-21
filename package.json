@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/rayshih/ir_by_learning_level",
   "dependencies": {
-    "cheerio": "^0.17.0"
+    "cheerio": "^0.17.0",
+    "async": "^0.9.0",
+    "request": "^2.36.0"
   }
 }
