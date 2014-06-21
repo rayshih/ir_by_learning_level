@@ -15,6 +15,7 @@ and put these data inside `data` folder
 
 ## Run
 
+	node crawler.js [-p] [pages] [-t] [time]
     ./levelLearn <action>
 
 or if you're using windows
