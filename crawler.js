@@ -32,7 +32,9 @@ var crawl = function (url, cb){
   if(!url) return cb();
 
   url = utils.removeHash(url);
-  if (crawled.indexOf(url) != -1) return cb();
+  if (crawled.indexOf(url) != -1){
+    return setImmediate(cb);
+  }
 
   console.log('crawl url: ' + url);
 
