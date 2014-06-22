@@ -1,8 +1,8 @@
 var request = require('request');
 var async = require('async');
 var fs = require('fs');
-var google = require('crawler_src/google');
-var utils = require('crawler_src/utils');
+var google = require('./crawler_src/google');
+var utils = require('./crawler_src/utils');
 
 var queryString = 'web development tutorial';
 var currentLevel = 0;
@@ -58,7 +58,7 @@ var crawl = function (url, cb){
         targetUrls = targetUrls.filter( function(url){
           if(!url) return false;
 
-          return !url.match(/(jpg|png|gif|zip)$/i);
+          return !url.match(/(jpg|png|gif|zip|js)$/i);
         });
 
         async.each(targetUrls, function(url, cb){
