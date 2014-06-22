@@ -101,11 +101,6 @@ var crawl = function (url, cb){
 var levelZeroCrawlFromGoogle = function(cb){
   async.waterfall([
     function (cb) {
-      fs.unlink('tmp/crawl_urls_' + (currentLevel + 1), function () {
-        cb();
-      });
-    },
-    function (cb) {
       async.timesSeries(pages, function (n, next){
         console.log('query google page: ' + n + '...');
         google(queryString, n, next);
@@ -139,11 +134,6 @@ var crawlByLevel = function (cb) {
     urlList = [];
 
     async.series([
-      function (cb) {
-        fs.unlink('tmp/crawl_urls_' + (currentLevel + 1), function () {
-          cb();
-        });
-      },
       function(cb){
         async.eachLimit(currentUrlList, concurrent, crawl, cb);
       },
