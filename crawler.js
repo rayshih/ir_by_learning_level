@@ -45,7 +45,8 @@ var crawl = function (url, cb){
         if (err) return cb(err);
         console.log('crawl url: ' + url + ' status: ' + res.statusCode);
 
-        if (res.headers['content-type'].match(/zip/)) return cb(new Error('zip file detect'));
+        var contentType = res.headers['content-type'];
+        if (contentType && contentType.match(/zip/)) return cb(new Error('zip file detect'));
         if (res.statusCode != 200) return cb(new Error('request fail'));
 
         cb(null, body);
