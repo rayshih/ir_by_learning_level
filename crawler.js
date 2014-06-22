@@ -1,8 +1,8 @@
 var request = require('request');
 var async = require('async');
 var fs = require('fs');
-var google = require('crawler_src/google');
-var utils = require('crawler_src/utils');
+var google = require('./crawler_src/google');
+var utils = require('./crawler_src/utils');
 
 var queryString = 'web development tutorial';
 var currentLevel = 0;
