@@ -74,6 +74,7 @@ var crawl = function (url, cb){
     },
     function (body, urls, cb) {
       var item = {
+        url: url,
         title: $(body).find('h1').first().text(),
         content: body.replace(/[\r\n\t]+/g, ' '),
         links: urls
