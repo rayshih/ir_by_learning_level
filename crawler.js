@@ -45,7 +45,8 @@ var crawl = function (url, cb){
         if (err) return cb(err);
         console.log('crawl url: ' + url + ' status: ' + res.statusCode);
 
-        if(res.statusCode != 200) return cb(new Error('request fail'));
+        if (res.headers['content-type'].match(/zip/)) return cb(new Error('zip file detect'));
+        if (res.statusCode != 200) return cb(new Error('request fail'));
 
         cb(null, body);
       });
@@ -72,9 +73,11 @@ var crawl = function (url, cb){
       });
     },
     function (body, urls, cb) {
+      var $h1 = $(body).find('h1');
+      var title = $h1.length > 0 ? $h1.first().text() : '';
       var item = {
         url: url,
-        title: $(body).find('h1').first().text(),
+        title: title,
         content: body.replace(/[\r\n\t]+/g, ' '),
         links: urls
       };
