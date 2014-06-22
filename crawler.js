@@ -37,12 +37,9 @@ var crawl = function (url, cb){
   }
 
   console.log('crawl url: ' + url);
+  crawled.push(url);
 
   async.waterfall([
-    function (cb) {
-      crawled.push(url);
-      cb();
-    },
     function (cb) {
       request(url, function (err, res, body){
         if (err) return cb(err);
