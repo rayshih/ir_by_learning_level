@@ -59,7 +59,7 @@ var crawl = function (url, cb){
         targetUrls = targetUrls.filter( function(url){
           if(!url) return false;
 
-          return !url.match(/(jpg|png|gif|zip|js)$/i);
+          return !url.match(/(jpe?g|png|gif|zip|js)$/i);
         });
 
         async.each(targetUrls, function(url, cb){
