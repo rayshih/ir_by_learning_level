@@ -59,7 +59,7 @@ var crawl = function (url, cb){
         targetUrls = targetUrls.filter( function(url){
           if(!url) return false;
 
-          return !url.match(/(jpe?g|png|gif|zip|js|gz)$/i);
+          return !url.match(/(jpe?g|png|gif|zip|js|gz|mov)$/i);
         });
 
         async.each(targetUrls, function(url, cb){
@@ -74,7 +74,13 @@ var crawl = function (url, cb){
       });
     },
     function (body, urls, cb) {
-      var $h1 = $(body).find('h1');
+      var $h1 = null;
+      try {
+        $h1 = $(body).find('h1');
+      } catch (e){
+        return cb(new Error('may not a html'));
+      }
+
       var title = $h1.length > 0 ? $h1.first().text() : '';
       var item = {
         url: url,
