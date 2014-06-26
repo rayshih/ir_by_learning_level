@@ -5,6 +5,7 @@ ir\_by\_learning\_level
 
     pip install numpy
     pip install scikit-learn
+    pip install python-graph-core
 
 You may need add `sudo` in the front
 
@@ -25,3 +26,4 @@ action list:
 
 - index
 - query
+- page_rank

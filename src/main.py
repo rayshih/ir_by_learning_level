@@ -8,6 +8,9 @@ from sklearn.decomposition import TruncatedSVD
 import data_reader as reader
 import util
 from persist import Persist
+from pygraph.classes.digraph import digraph
+from pygraph.algorithms import pagerank
+import operator
 #from gensim import corpora, models, matutils
 
 # '''
@@ -72,6 +75,23 @@ def index(filename):
   Persist("vectorizer").dump(vectorizer)
   #Persist('lsa').dump(lsa)
   Persist("url_list").dump([item["url"] for item in raw])
+
+def page_rank(filename):
+    data = reader.loadJL(filename)
+    gr = digraph()
+    for site in data:
+        if not gr.has_node(site["url"]):
+            gr.add_nodes([site["url"]])
+        for link in site["links"]:
+            if not gr.has_node(link):
+                gr.add_nodes([link])
+            if not gr.has_edge((site["url"], link)):
+                gr.add_edge((site["url"], link))
+ 
+    pg_values = pagerank.pagerank(gr)
+    Persist("page_rank").dump(pg_values)
+    
+    print 'page rank finish'
 
 def search(queryString):
   indexed_data = Persist("indexed_data").load()
@@ -189,6 +209,8 @@ def main():
     index(sys.argv[2])
   elif action == 'query':
     query(sys.argv[2:])
+  elif action == 'page_rank':
+    page_rank(sys.argv[2])
   else:
     print "action %s not supported" % (action)
 
