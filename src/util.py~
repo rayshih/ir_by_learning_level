@@ -1,3 +1,0 @@
-
-def get_searchable(data):
-  return data['title'][0] + ' ' + data['content'][0]
