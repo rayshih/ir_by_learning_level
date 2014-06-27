@@ -26,4 +26,4 @@ action list:
 
 - index
 - query
-- page_rank
+- page\_rank
