@@ -11,6 +11,7 @@ from persist import Persist
 from pygraph.classes.digraph import digraph
 from pygraph.algorithms import pagerank
 from nltk.model import ngram
+from urlparse import urlparse
 import operator
 import re
 
@@ -37,8 +38,7 @@ def train(data):
 
 def index(filename):
   raw = reader.loadJL(filename)
-  from urlparse import urlparse
-  raw = [len(urlparse(item["url"]).path) > 2 for item in raw];
+  raw = [item for item in raw if len(urlparse(item["url"]).path) > 2 ];
   data = [util.get_searchable(item) for item in raw];
 
   print 'index finish'
